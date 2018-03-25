@@ -1,10 +1,10 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
-// Copyright (c) 2009-2017 The Bitcoin Core developers
+// Copyright (c) 2009-2017 The Bitcoinlimitededition Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #if defined(HAVE_CONFIG_H)
-#include <config/bitcoin-config.h>
+#include <config/bitcoinlimitededition-config.h>
 #endif
 
 #include <chainparamsbase.h>
@@ -46,7 +46,7 @@ std::string HelpMessageCli()
     strUsage += HelpMessageOpt("-rpcport=<port>", strprintf(_("Connect to JSON-RPC on <port> (default: %u or testnet: %u)"), defaultBaseParams->RPCPort(), testnetBaseParams->RPCPort()));
     strUsage += HelpMessageOpt("-rpcuser=<user>", _("Username for JSON-RPC connections"));
     strUsage += HelpMessageOpt("-rpcwait", _("Wait for RPC server to start"));
-    strUsage += HelpMessageOpt("-rpcwallet=<walletname>", _("Send RPC for non-default wallet on RPC server (needs to exactly match corresponding -wallet option passed to bitcoind)"));
+    strUsage += HelpMessageOpt("-rpcwallet=<walletname>", _("Send RPC for non-default wallet on RPC server (needs to exactly match corresponding -wallet option passed to bitcoinlimitededitiond)"));
     strUsage += HelpMessageOpt("-stdin", _("Read extra arguments from standard input, one per line until EOF/Ctrl-D (recommended for sensitive information such as passphrases).  When combined with -stdinrpcpass, the first line from standard input is used for the RPC password."));
     strUsage += HelpMessageOpt("-stdinrpcpass", strprintf(_("Read RPC password from standard input as a single line.  When combined with -stdin, the first line from standard input is used for the RPC password.")));
 
@@ -86,10 +86,10 @@ static int AppInitRPC(int argc, char* argv[])
         std::string strUsage = strprintf(_("%s RPC client version"), _(PACKAGE_NAME)) + " " + FormatFullVersion() + "\n";
         if (!gArgs.IsArgSet("-version")) {
             strUsage += "\n" + _("Usage:") + "\n" +
-                  "  bitcoin-cli [options] <command> [params]  " + strprintf(_("Send command to %s"), _(PACKAGE_NAME)) + "\n" +
-                  "  bitcoin-cli [options] -named <command> [name=value] ... " + strprintf(_("Send command to %s (with named arguments)"), _(PACKAGE_NAME)) + "\n" +
-                  "  bitcoin-cli [options] help                " + _("List commands") + "\n" +
-                  "  bitcoin-cli [options] help <command>      " + _("Get help for a command") + "\n";
+                  "  bitcoinlimitededition-cli [options] <command> [params]  " + strprintf(_("Send command to %s"), _(PACKAGE_NAME)) + "\n" +
+                  "  bitcoinlimitededition-cli [options] -named <command> [name=value] ... " + strprintf(_("Send command to %s (with named arguments)"), _(PACKAGE_NAME)) + "\n" +
+                  "  bitcoinlimitededition-cli [options] help                " + _("List commands") + "\n" +
+                  "  bitcoinlimitededition-cli [options] help <command>      " + _("Get help for a command") + "\n";
 
             strUsage += "\n" + HelpMessageCli();
         }
@@ -361,7 +361,7 @@ static UniValue CallRPC(BaseRequestHandler *rh, const std::string& strMethod, co
         if (response.error != -1) {
             responseErrorMessage = strprintf(" (error code %d - \"%s\")", response.error, http_errorstring(response.error));
         }
-        throw CConnectionFailed(strprintf("Could not connect to the server %s:%d%s\n\nMake sure the bitcoind server is running and that you are connecting to the correct RPC port.", host, port, responseErrorMessage));
+        throw CConnectionFailed(strprintf("Could not connect to the server %s:%d%s\n\nMake sure the bitcoinlimitededitiond server is running and that you are connecting to the correct RPC port.", host, port, responseErrorMessage));
     } else if (response.status == HTTP_UNAUTHORIZED) {
         if (failedToGetAuthCookie) {
             throw std::runtime_error(strprintf(
@@ -452,7 +452,7 @@ int CommandLineRPC(int argc, char *argv[])
                             strPrint += "error message:\n"+errMsg.get_str();
 
                         if (errCode.isNum() && errCode.get_int() == RPC_WALLET_NOT_SPECIFIED) {
-                            strPrint += "\nTry adding \"-rpcwallet=<filename>\" option to bitcoin-cli command line.";
+                            strPrint += "\nTry adding \"-rpcwallet=<filename>\" option to bitcoinlimitededition-cli command line.";
                         }
                     }
                 } else {

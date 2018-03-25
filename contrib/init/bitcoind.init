@@ -1,36 +1,36 @@
 #!/bin/bash
 #
-#  bitcoind The bitcoin core server.
+#  bitcoinlimitededitiond The bitcoinlimitededition core server.
 #
 #
 # chkconfig: 345 80 20
-# description: bitcoind
-# processname: bitcoind
+# description: bitcoinlimitededitiond
+# processname: bitcoinlimitededitiond
 #
 
 # Source function library.
 . /etc/init.d/functions
 
-# you can override defaults in /etc/sysconfig/bitcoind, see below
-if [ -f /etc/sysconfig/bitcoind ]; then
-        . /etc/sysconfig/bitcoind
+# you can override defaults in /etc/sysconfig/bitcoinlimitededitiond, see below
+if [ -f /etc/sysconfig/bitcoinlimitededitiond ]; then
+        . /etc/sysconfig/bitcoinlimitededitiond
 fi
 
 RETVAL=0
 
-prog=bitcoind
-# you can override the lockfile via BITCOIND_LOCKFILE in /etc/sysconfig/bitcoind
-lockfile=${BITCOIND_LOCKFILE-/var/lock/subsys/bitcoind}
+prog=bitcoinlimitededitiond
+# you can override the lockfile via BITCOIND_LOCKFILE in /etc/sysconfig/bitcoinlimitededitiond
+lockfile=${BITCOIND_LOCKFILE-/var/lock/subsys/bitcoinlimitededitiond}
 
-# bitcoind defaults to /usr/bin/bitcoind, override with BITCOIND_BIN
-bitcoind=${BITCOIND_BIN-/usr/bin/bitcoind}
+# bitcoinlimitededitiond defaults to /usr/bin/bitcoinlimitededitiond, override with BITCOIND_BIN
+bitcoinlimitededitiond=${BITCOIND_BIN-/usr/bin/bitcoinlimitededitiond}
 
-# bitcoind opts default to -disablewallet, override with BITCOIND_OPTS
-bitcoind_opts=${BITCOIND_OPTS--disablewallet}
+# bitcoinlimitededitiond opts default to -disablewallet, override with BITCOIND_OPTS
+bitcoinlimitededitiond_opts=${BITCOIND_OPTS--disablewallet}
 
 start() {
     echo -n $"Starting $prog: "
-    daemon $DAEMONOPTS $bitcoind $bitcoind_opts
+    daemon $DAEMONOPTS $bitcoinlimitededitiond $bitcoinlimitededitiond_opts
     RETVAL=$?
     echo
     [ $RETVAL -eq 0 ] && touch $lockfile

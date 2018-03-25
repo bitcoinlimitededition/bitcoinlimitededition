@@ -1,2 +1,2 @@
-contrib/bitcoind.bash-completion	bitcoind
-contrib/bitcoin-cli.bash-completion	bitcoin-cli
+contrib/bitcoinlimitededitiond.bash-completion	bitcoinlimitededitiond
+contrib/bitcoinlimitededition-cli.bash-completion	bitcoinlimitededition-cli

@@ -1,8 +1,8 @@
-/usr/bin/bitcoin-cli		--	gen_context(system_u:object_r:bitcoin_exec_t,s0)
-/usr/sbin/bitcoind		--	gen_context(system_u:object_r:bitcoin_exec_t,s0)
-/usr/lib(64)?/bitcoin/bitcoind		--	gen_context(system_u:object_r:bitcoin_exec_t,s0)
+/usr/bin/bitcoinlimitededition-cli		--	gen_context(system_u:object_r:bitcoinlimitededition_exec_t,s0)
+/usr/sbin/bitcoinlimitededitiond		--	gen_context(system_u:object_r:bitcoinlimitededition_exec_t,s0)
+/usr/lib(64)?/bitcoinlimitededition/bitcoinlimitededitiond		--	gen_context(system_u:object_r:bitcoinlimitededition_exec_t,s0)
 
-/etc/bitcoin(/.*)?		gen_context(system_u:object_r:bitcoin_conf_t,s0)
-/var/lib/bitcoin(/.*)?		gen_context(system_u:object_r:bitcoin_var_lib_t,s0)
+/etc/bitcoinlimitededition(/.*)?		gen_context(system_u:object_r:bitcoinlimitededition_conf_t,s0)
+/var/lib/bitcoinlimitededition(/.*)?		gen_context(system_u:object_r:bitcoinlimitededition_var_lib_t,s0)
 
-(/var)?/run/bitcoind(/.*)?   gen_context(system_u:object_r:bitcoin_var_run_t,s0)
+(/var)?/run/bitcoinlimitededitiond(/.*)?   gen_context(system_u:object_r:bitcoinlimitededition_var_run_t,s0)
